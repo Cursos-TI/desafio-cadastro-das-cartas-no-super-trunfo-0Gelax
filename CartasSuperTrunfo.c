@@ -2,13 +2,15 @@
 
 // Definição da estrutura para armazenar os dados de uma carta
 struct CartaSuperTrunfo {
-  char estado;           // Letra de A a H
-  char codigo[50];       // Exemplo: A01 -- Após ler a documentação tive de por isso em formato de string;
-  char nomeCidade[50];   // Nome da cidade
-  int populacao;         // Número de habitantes
-  float area;            // Área em km²
-  float pib;             // PIB em bilhões
-  int pontosTuristicos;  // Número de pontos turísticos
+  char estado;                  // Letra de A a H
+  char codigo[50];              // Exemplo: A01 -- Se digitar o número ele pode ser visto como binário, caso escreva com 0 no inicio;
+  char nomeCidade[50];          // Nome da cidade
+  int populacao;                // Número de habitantes
+  float area;                   // Área em km²
+  float pib;                    // PIB em bilhões
+  int pontosTuristicos;         // Número de pontos turísticos
+  float densidadePopulacional;  // Densidade populacional em hab/km²
+  float pibPerCapita;           // PIB per capita em reais
 };
 
 int main() {
@@ -16,7 +18,7 @@ int main() {
   struct CartaSuperTrunfo carta1;
   struct CartaSuperTrunfo carta2;
 
-  // Instruções para o usuário - Carta 1
+  // Informações para a Carta 1
   printf("Cadastro da Carta 1:\n");
   printf("Digite a letra do Estado (A-H): ");
   scanf(" %c", &carta1.estado);
@@ -39,9 +41,12 @@ int main() {
   printf("Digite o número de pontos turísticos: ");
   scanf("%d", &carta1.pontosTuristicos);
 
+  carta1.pibPerCapita = (carta1.pib * 1e9) / carta1.populacao;
+  carta1.densidadePopulacional = carta1.populacao / carta1.area;
+
   system("clear");
 
-  // Instruções para o usuário - Carta 2
+  // Informações para a Carta 2
   printf("Cadastro da Carta 2:\n");
   printf("Digite a letra do Estado (A-H): ");
   scanf(" %c", &carta2.estado);
@@ -64,6 +69,9 @@ int main() {
   printf("Digite o número de pontos turísticos: ");
   scanf("%d", &carta2.pontosTuristicos);
 
+  carta2.pibPerCapita = (carta2.pib * 1e9) / carta2.populacao;
+  carta2.densidadePopulacional = carta2.populacao / carta2.area;
+
   system("clear");
 
   // Exibição dos dados da Carta 1
@@ -75,6 +83,8 @@ int main() {
   printf("Área: %.2f km²\n", carta1.area);
   printf("PIB: %.2f bilhões de reais\n", carta1.pib);
   printf("Número de Pontos Turísticos: %d\n", carta1.pontosTuristicos);
+  printf("Densidade Populacional: %.2f hab/km²\n", carta1.densidadePopulacional);
+  printf("PIB Per Capita: %.2f reais\n", carta1.pibPerCapita);
 
   printf("\n");
 
@@ -87,6 +97,8 @@ int main() {
   printf("Área: %.2f km²\n", carta2.area);
   printf("PIB: %.2f bilhões de reais\n", carta2.pib);
   printf("Número de Pontos Turísticos: %d\n", carta2.pontosTuristicos);
-
+  printf("Densidade Populacional: %.2f hab/km²\n", carta2.densidadePopulacional);
+  printf("PIB Per Capita: %.2f reais\n", carta2.pibPerCapita);
+  
   return 0;
 }
