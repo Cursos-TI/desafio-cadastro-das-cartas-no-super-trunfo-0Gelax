@@ -3,7 +3,7 @@
 // Definição da estrutura para armazenar os dados de uma carta
 struct CartaSuperTrunfo {
   char estado;           // Letra de A a H
-  char codigo[50];            // Exemplo: A01 -- Se digitar o número ele pode ser visto como binário, caso escreva com 0 no inicio;
+  char codigo[50];       // Exemplo: A01 -- Após ler a documentação tive de por isso em formato de string;
   char nomeCidade[50];   // Nome da cidade
   int populacao;         // Número de habitantes
   float area;            // Área em km²
