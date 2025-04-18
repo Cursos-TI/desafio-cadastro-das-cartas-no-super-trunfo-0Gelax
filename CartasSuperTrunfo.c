@@ -117,7 +117,7 @@ int main() {
   printf("Área: Carta %d venceu\n", (carta1.area > carta2.area) ? 1 : 2);
   printf("PIB: Carta %d venceu\n", (carta1.pib > carta2.pib) ? 1 : 2);
   printf("Pontos Turísticos: Carta %d venceu\n", (carta1.pontosTuristicos > carta2.pontosTuristicos) ? 1 : 2);
-  printf("Densidade Populacional: Carta %d venceu\n", (carta1.densidadePopulacional > carta2.densidadePopulacional) ? 1 : 2);
+  printf("Densidade Populacional: Carta %d venceu\n", (carta1.densidadePopulacional < carta2.densidadePopulacional) ? 1 : 2); // o que tiver a menor densidade vence
   printf("PIB Per Capita: Carta %d venceu\n", (carta1.pibPerCapita > carta2.pibPerCapita) ? 1 : 2);
   printf("Super Poder: Carta %d venceu\n", (carta1.superPoder > carta2.superPoder) ? 1 : 2);
 
