@@ -11,6 +11,7 @@ struct CartaSuperTrunfo {
   int pontosTuristicos;         // Número de pontos turísticos
   float densidadePopulacional;  // Densidade populacional em hab/km²
   float pibPerCapita;           // PIB per capita em reais
+  float superPoder;             // Valor calculado para determinar o poder... olha eu acho idiota a parte do super. 
 };
 
 int main() {
@@ -43,6 +44,7 @@ int main() {
 
   carta1.pibPerCapita = (carta1.pib * 1e9) / carta1.populacao;
   carta1.densidadePopulacional = carta1.populacao / carta1.area;
+  carta1.superPoder = (((float) carta1.populacao)/1000 + carta1.area + carta1.pib + carta1.pibPerCapita) * 1/carta1.densidadePopulacional * carta1.pontosTuristicos;
 
   system("clear");
 
@@ -71,9 +73,11 @@ int main() {
 
   carta2.pibPerCapita = (carta2.pib * 1e9) / carta2.populacao;
   carta2.densidadePopulacional = carta2.populacao / carta2.area;
-
+  // superPoder eu alterei a formula por razões que a somatoria simples não faz sentido, visto que a população tem um peso gigante.
+  carta2.superPoder = (((float) carta2.populacao)/1000 + carta2.area + carta2.pib + carta2.pibPerCapita) * 1/carta2.densidadePopulacional * carta2.pontosTuristicos;
+  
   system("clear");
-
+  
   // Exibição dos dados da Carta 1
   printf("Carta 1:\n");
   printf("Estado: %c\n", carta1.estado);
@@ -85,6 +89,7 @@ int main() {
   printf("Número de Pontos Turísticos: %d\n", carta1.pontosTuristicos);
   printf("Densidade Populacional: %.2f hab/km²\n", carta1.densidadePopulacional);
   printf("PIB Per Capita: %.2f reais\n", carta1.pibPerCapita);
+  printf("Super Poder: %.2f\n", carta1.superPoder);
 
   printf("\n");
 
@@ -99,6 +104,22 @@ int main() {
   printf("Número de Pontos Turísticos: %d\n", carta2.pontosTuristicos);
   printf("Densidade Populacional: %.2f hab/km²\n", carta2.densidadePopulacional);
   printf("PIB Per Capita: %.2f reais\n", carta2.pibPerCapita);
+  printf("Super Poder: %.2f\n", carta2.superPoder);
+
+  printf("\n");
   
+  // Comparação entre as cartas
+  // variavel1 (termo de comparação) variavel2 ? (se verdadeiro) : (se falso)
+  // operador ternário, uso bastante em JS.
+  
+  printf("Comparação entre as cartas:\n");
+  printf("População: Carta: %d venceu\n", (carta1.populacao > carta2.populacao) ? 1 : 2);
+  printf("Área: Carta %d venceu\n", (carta1.area > carta2.area) ? 1 : 2);
+  printf("PIB: Carta %d venceu\n", (carta1.pib > carta2.pib) ? 1 : 2);
+  printf("Pontos Turísticos: Carta %d venceu\n", (carta1.pontosTuristicos > carta2.pontosTuristicos) ? 1 : 2);
+  printf("Densidade Populacional: Carta %d venceu\n", (carta1.densidadePopulacional > carta2.densidadePopulacional) ? 1 : 2);
+  printf("PIB Per Capita: Carta %d venceu\n", (carta1.pibPerCapita > carta2.pibPerCapita) ? 1 : 2);
+  printf("Super Poder: Carta %d venceu\n", (carta1.superPoder > carta2.superPoder) ? 1 : 2);
+
   return 0;
 }
