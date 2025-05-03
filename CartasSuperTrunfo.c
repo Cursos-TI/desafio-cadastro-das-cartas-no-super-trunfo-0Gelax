@@ -97,7 +97,7 @@ int main() {
     printf("Vencedor da Área: Carta %s\n", (area1 > area2) ? codigo1 : codigo2);
     printf("Vencedor do PIB: Carta %s\n", (pib1 > pib2) ? codigo1 : codigo2);
     printf("Vencedor dos Pontos Turísticos: Carta %s\n", (pontosTuristicos1 > pontosTuristicos2) ? codigo1 : codigo2);
-    printf("Vencedor da Densidade Populacional: Carta %s\n", (densidadePopulacional1 > densidadePopulacional2) ? codigo1 : codigo2);
+    printf("Vencedor da Densidade Populacional: Carta %s\n", (densidadePopulacional1 < densidadePopulacional2) ? codigo1 : codigo2);
     printf("Vencedor do PIB per Capita: Carta %s\n", (pibPerCapita1 > pibPerCapita2) ? codigo1 : codigo2);
     printf("Vencedor do Super Poder: Carta %s\n", (superPoder1 > superPoder2) ? codigo1 : codigo2);
 
